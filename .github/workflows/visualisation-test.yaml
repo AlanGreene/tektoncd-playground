@@ -28,7 +28,7 @@ jobs:
         echo hello
   task-d:
     name: Task D
-    needs: task-c
+    needs: [task-c, task-a]
     runs-on: ubuntu-20.04
     steps:
     - name: echo
