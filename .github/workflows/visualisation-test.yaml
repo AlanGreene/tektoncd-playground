@@ -1,0 +1,52 @@
+name: visualisation-test
+on: workflow_dispatch
+defaults:
+  run:
+    shell: bash
+jobs:
+  task-a:
+    name: Task A
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
+  task-b:
+    name: Task B
+    needs: task-a
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
+  task-c:
+    name: Task C
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
+  task-d:
+    name: Task D
+    needs: task-c
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
+  task-e:
+    name: Task E
+    needs: task-c
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
+  task-f:
+    name: Task F
+    needs: [task-b, task-d, task-e]
+    runs-on: ubuntu-20.04
+    steps:
+    - name: echo
+      run: |
+        echo hello
